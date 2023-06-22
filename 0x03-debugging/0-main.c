@@ -3,7 +3,7 @@
 /**
  * main - Test positive or Negative
  *
- * Return: 0
+ * Return: Nothing
  */
 int main(void)
 {
@@ -11,5 +11,6 @@ int main(void)
 
 	i = 0;
 	positive_or_negative(i);
+
 	return (0);
 }
