@@ -14,7 +14,7 @@ char *_strncpy(char *dest, char *src, int n)
 
 	while (c < n)
 	{
-		if (*(src + c))
+		if (src[c])
 		{
 			*(dest + c) = *(src + c);
 		}
