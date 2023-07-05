@@ -4,7 +4,7 @@
  * _pow_recursion - Get pow of an int
  * @x: The integer
  * @y: The power
- * @Return: x to pow of y
+ * Return: x to pow of y
  */
 int _pow_recursion(int x, int y)
 {
