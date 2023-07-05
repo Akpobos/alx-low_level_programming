@@ -14,18 +14,20 @@ char *_strpbrk(char *s, char *accept)
 
 	while (*(s + i))
 	{
+		int is_match = 0;
 		unsigned int j = 0;
 
 		while (*(accept + j))
 		{
 			if (*(accept + j) == *(s + i))
 			{
-				p = s + i
+				p = s + i;
+				is_match = 1;
 				break;
 			}
 			j++;
 		}
-		if (*p == *(s + i))
+		if (is_match)
 			break;
 		i++;
 	}
