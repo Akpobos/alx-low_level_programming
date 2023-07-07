@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		}
 
 		printf("Error\n");
-		exit(EXIT_FAILURE);
+		return (1);
 	}
 	printf("%d\n", sum);
 	exit(EXIT_SUCCESS);
