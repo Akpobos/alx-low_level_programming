@@ -8,22 +8,24 @@
  */
 int main(int argc, char **argv)
 {
-	int sum = 0;
-	int c;
+        int sum = 0;
+        int c;
 
-	for (c = 1; c < argc; c++)
-	{
-		int num = atoi(argv[c]);
+        for (c = 1; c < argc; c++)
+        {
+                int i = 0;
 
-		if (num)
-		{
-			sum += num;
-			continue;
-		}
-
-		printf("Error\n");
-		return (1);
-	}
-	printf("%d\n", sum);
-	exit(EXIT_SUCCESS);
+                while (argv[c][i])
+                {
+                        if (!isdigit(argv[c][i]))
+                        {
+                                printf("Error\n");
+                                exit(EXIT_FAILURE);
+                        }
+                        i++;
+                }
+                sum += atoi(argv[c]);
+        }
+        printf("%d\n", sum);
+        exit(EXIT_SUCCESS);
 }
