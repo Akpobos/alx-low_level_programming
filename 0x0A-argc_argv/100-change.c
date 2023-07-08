@@ -7,7 +7,7 @@
  *
  * Return: Number
  */
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int cent;
 	int coins;
