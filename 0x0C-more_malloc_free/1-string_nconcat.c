@@ -48,6 +48,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int len = s1len + s2len;
 	char *ptr = NULL;
 
+	if (n < s2len)
+		len = s1len + n;
 	if (len == 0)
 		len = 1;
 	else
