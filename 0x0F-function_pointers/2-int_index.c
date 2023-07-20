@@ -19,7 +19,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 			break;
 	}
 
-	if (i <= 0)
+	if (i <= 0 || i == size)
 		i = -1;
 	return (i);
 }
