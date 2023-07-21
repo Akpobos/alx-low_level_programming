@@ -17,6 +17,13 @@ void print_char(va_list args)
  */
 void print_str(va_list args)
 {
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
 	printf("%s", str);
 }
 
