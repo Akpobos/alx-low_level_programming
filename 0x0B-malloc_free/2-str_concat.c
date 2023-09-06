@@ -29,8 +29,15 @@ unsigned int _strlen(char *str)
 char *str_concat(char *s1, char *s2)
 {
 	char *ptr;
-	unsigned int s1_len = _strlen(s1), s2_len = _strlen(s2);
-	unsigned int t_len = s1_len + s2_len, i;
+	unsigned int s1_len, s2_len, t_len, i;
+
+	if (!s1)
+		s1 = "";
+	if (!s2)
+		s2 = "";
+	s1_len = _strlen(s1);
+	s2_len = _strlen(s2);
+	t_len = s1_len + s2_len;
 
 	ptr = malloc(sizeof(char) * (t_len + 1));
 	if (!ptr)
