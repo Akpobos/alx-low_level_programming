@@ -3,7 +3,7 @@
 /**
  * _strlen - Get str length
  * @str: the string
- * @Return: the length
+ * Return: the length
  */
 unsigned int _strlen(char *str)
 {
