@@ -8,12 +8,12 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr = NULL;
+	int *ptr = NULL;
 	unsigned int i;
 
 	if (nmemb <= 0 || size <= 0)
 		return (NULL);
-	ptr = malloc( nmemb * size);
+	ptr = (int *)malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < (nmemb * size); i++)
