@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
- * _calloc - Allocates memory for array
- * @nmemb: the height
- * @size: width
- * Return: Pointer to alloc memory
+ * _calloc - Allocates memory for an array
+ * @nmemb: Bolcks
+ * @size: Size of each blocks
+ * Return: void pointer
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ptr, i;
+	int *ptr = NULL;
+	unsigned int i;
 
-	if (nmemb <= 0 || size <= 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-	ptr = malloc(sizeof(ptr) * nmemb);
-	if (!ptr)
+	ptr = malloc(sizeof(ptr) * nmemb * size);
+	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < nmemb; i++)
 	{
 		unsigned int j;
 
 		ptr[i] = malloc(size);
-		if (!ptr[i])
+		if (ptr[i] == NULL)
 		{
-			i--;
 			while (i >= 0)
 			{
 				free(ptr[i]);
