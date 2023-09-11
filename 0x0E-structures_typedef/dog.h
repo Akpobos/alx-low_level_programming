@@ -17,7 +17,7 @@ struct dog
 	char *name;
 	float age;
 	char *owner;
-}
+};
 
 /* Prototypes */
 void init_dog(struct dog *d, char *name, float age, char *owner);
