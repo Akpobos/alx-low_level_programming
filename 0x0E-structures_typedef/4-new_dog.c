@@ -8,7 +8,7 @@
 unsigned int _strlen(char *str)
 {
 	unsigned int c = 0;
-	
+
 	while (*str)
 	{
 		c++;
@@ -27,7 +27,7 @@ unsigned int _strlen(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ptr = NULL;
-	unsigned int len;
+	unsigned int l1, l2, i = 0;
 
 	if (!name || !owner)
 		return (NULL);
@@ -35,25 +35,35 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (!ptr)
 		return (NULL);
 	ptr->age = age;
-	len = _strlen(name);
-	ptr->name = malloc(sizeof(*name) * (len + 1));
-	if (!ptr->name)
-	{
-		free(ptr);
-		ptr = NULL;
-		return (NULL);
-	}
-	len = _strlen(owner);
-	ptr->owner = malloc(sizeof(*owner) * (len + 1));
-	if (!ptr->owner)
+	l1 = _strlen(name);
+	ptr->name = malloc(sizeof(*name) * (l1 + 1));
+	l2 = _strlen(owner);
+	ptr->owner = malloc(sizeof(*owner) * (l2 + 1));
+	if (!ptr->name || !ptr->owner)
 	{
 		free(ptr->name);
 		ptr->name = NULL;
+		free(ptr->owner);
+		ptr->owner = NULL;
 		free(ptr);
 		ptr = NULL;
 		return (NULL);
 	}
-	ptr->name = name;
-	ptr->owner = owner;
+
+	while (*name)
+	{
+		ptr->name[i] = *name;
+		name++;
+		i++;
+	}
+	ptr->name[i] = '\0';
+	i = 0;
+	while (*owner)
+	{
+		ptr->owner[i] = *owner;
+		owner++;
+		i++;
+	}
+	ptr->owner[i] = '\0';
 	return (ptr);
 }
