@@ -16,7 +16,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	f = get_op_func(av[2]);
-	if (!f)
+	if (strlen(argv[2]) != 1 || !f)
 	{
 		printf("Error\n");
 		exit(99);
