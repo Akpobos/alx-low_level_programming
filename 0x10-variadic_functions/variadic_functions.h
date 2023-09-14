@@ -13,7 +13,7 @@ struct op
 {
 	char type;
 	void (*f)(va_list args);
-}
+};
 
 /* typedef op_t - Typedef for op */
 typedef struct op op_t;
