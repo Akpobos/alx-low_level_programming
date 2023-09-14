@@ -39,6 +39,11 @@ void print_string(va_list args)
 {
 	char *str = va_arg(args, char *);
 
+	if (!str)
+	{
+		printf("(nil)");
+		return;
+	}
 	printf("%s", str);
 }
 
@@ -57,6 +62,7 @@ void print_all(const char * const format, ...)
 	};
 	unsigned int i = 0;
 	va_list args;
+	char *separator = "";
 
 	va_start(args, format);
 	while (format[i])
@@ -67,9 +73,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == ops[j].type)
 			{
+				printf("%s", separator);
 				ops[j].f(args);
-				if (format[i + 1] != '\0')
-					printf(", ");
+				separator = ", ";
 				break;
 			}
 			j++;
