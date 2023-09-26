@@ -27,6 +27,8 @@ listint_t *_rev_listint(listint_t *curr, listint_t *prev)
  */
 listint_t *reverse_listint(listint_t **head)
 {
+	if (!head || !*head)
+		return (NULL);
 	*head = _rev_listint(*head, NULL);
 	return (*head);
 }
