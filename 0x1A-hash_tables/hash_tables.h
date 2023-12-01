@@ -43,4 +43,6 @@ char *get_node(hash_node_t *node, const char *key);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void print_node(hash_node_t *node, char **sep);
 void hash_table_print(const hash_table_t *ht);
+void free_list(hash_node_t *node);
+void hash_table_delete(hash_table_t *ht);
 #endif
