@@ -52,12 +52,13 @@ int create_hash_node(hash_node_t **node, const char *key, const char *value)
  * @ht: The hash table
  * @key: The key
  * @value: The value
+ * Return: 1 on success else 0
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 
-	if (!ht || !key || *key == '\0' || !value)
+	if (!ht || !key || *key == '\0')
 		return (0);
 	index = key_index((const unsigned char *) key, ht->size);
 	return (create_hash_node(&(ht->array[index]), key, value));
