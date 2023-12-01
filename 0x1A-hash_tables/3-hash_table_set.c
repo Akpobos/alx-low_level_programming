@@ -22,34 +22,22 @@ int create_hash_node(hash_node_t *node, const char *key, const char *value)
 		}
 		tmp = tmp->next;
 	}
-
 	new_node = malloc(sizeof(*new_node));
 	if (new_node == NULL)
 		return (0);
-	new_node->next = NULL;
+	new_node->next = node;
 	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
 		free(new_node);
-		new_node = NULL;
 		return (0);
 	}
 	new_node->value = strdup(value);
 	if (new_node->value == NULL)
 	{
 		free(new_node->key);
-		new_node->key = NULL;
 		free(new_node);
-		new_node = NULL;
 		return (0);
-	}
-
-	if (node == NULL)
-		node = new_node;
-	else
-	{
-		new_node->next = node;
-		node = new_node;
 	}
 	return (1);
 }
