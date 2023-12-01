@@ -12,6 +12,17 @@ int create_hash_node(hash_node_t *node, const char *key, const char *value)
 {
 	hash_node_t *new_node = NULL, *tmp;
 
+	while (tmp && tmp->next)
+	{
+		if (strcmp(tmp->key, key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = strdup(value);
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+
 	new_node = malloc(sizeof(*new_node));
 	if (new_node == NULL)
 		return (0);
@@ -31,13 +42,6 @@ int create_hash_node(hash_node_t *node, const char *key, const char *value)
 		free(new_node);
 		new_node = NULL;
 		return (0);
-	}
-
-	while (tmp && tmp->next)
-	{
-		if (strcmp(tmp->value, value) == 0)
-			return (1);
-		tmp = tmp->next;
 	}
 
 	if (node == NULL)
@@ -62,7 +66,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 
-	if (!ht || !key || !value)
+	if (!ht || !key || key == '\0' || !value)
 		return (0);
 	index = key_index((const unsigned char *) key, ht->size);
 	return (create_hash_node(ht->array[index], key, value));
