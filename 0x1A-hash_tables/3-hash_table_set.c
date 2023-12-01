@@ -12,7 +12,7 @@ int create_hash_node(hash_node_t **node, const char *key, const char *value)
 {
 	hash_node_t *new_node = NULL, *tmp = *node;
 
-	while (tmp && tmp->next)
+	while (tmp != NULL)
 	{
 		if (strcmp(tmp->key, key) == 0)
 		{
