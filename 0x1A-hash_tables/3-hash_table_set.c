@@ -56,6 +56,7 @@ int create_hash_node(hash_node_t *node, const char *key, const char *value)
  * @ht: The hash table
  * @key: The key
  * @value: The value
+ * Return: 1 if success else 0
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
