@@ -32,6 +32,14 @@ int create_hash_node(hash_node_t *node, const char *key, const char *value)
 		new_node = NULL;
 		return (0);
 	}
+
+	while (tmp && tmp->next)
+	{
+		if (strcmp(tmp->value, value) == 0)
+			return (1);
+		tmp = tmp->next;
+	}
+
 	if (node == NULL)
 		node = new_node;
 	else
